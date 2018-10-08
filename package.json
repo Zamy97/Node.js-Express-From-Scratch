@@ -1,0 +1,23 @@
+{
+  "name": "node.js-express-from-scratch",
+  "version": "1.0.0",
+  "description": "Simple knowledgebase app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zamy97/Node.js-Express-From-Scratch.git"
+  },
+  "author": "Aktar Zaman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zamy97/Node.js-Express-From-Scratch/issues"
+  },
+  "homepage": "https://github.com/Zamy97/Node.js-Express-From-Scratch#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
