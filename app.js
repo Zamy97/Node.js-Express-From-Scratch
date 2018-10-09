@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/nodeKB');
 let db = mongoose.connection;
@@ -26,6 +27,13 @@ let Article = require('./models/article');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// Body parser middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 // Home route
 app.get('/', function(req,res){
     Article.find({}, function(err, articles){
@@ -49,10 +57,20 @@ app.get('/articles/add', function(req, res){
 
 });
 
-// Add submit POST route
+// Add Submit POST route
 app.post('/articles/add', function(req, res){
-    console.log('sumitted');
-    return;
+    let article = new Article();
+    article.title = req.body.title;
+    article.author = req.body.author;
+    article.body = req.body.body;
+
+    article.save(function(err){
+        if(err){
+            console.log(err);
+        } else{
+            res.redirect('/');
+        }
+    });
 
 });
 
