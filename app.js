@@ -101,8 +101,8 @@ app.post('/articles/edit/:id', function(req, res){
     Article.update(query, article, function(err){
         if(err){
             console.log(err);
-        } else {
-            res.redriect('/');
+        } else{
+            res.redirect('/');
         }
     });
 });
