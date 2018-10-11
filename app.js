@@ -107,6 +107,18 @@ app.post('/articles/edit/:id', function(req, res){
     });
 });
 
+//Delelte articles
+app.delete('/article/:id', function(req, res){
+    let query = {_id:req.params.id}
+
+    Article.remove(query, function(err){
+        if(err){
+            console.log(err);
+        }
+        res.send('success')
+    });
+});
+
 // Load edit form
 app.get('/article/edit/:id', function(req,res){
     Article.findById(req.params.id, function(err, article){
