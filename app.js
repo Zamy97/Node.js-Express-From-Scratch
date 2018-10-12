@@ -107,7 +107,7 @@ app.post('/articles/edit/:id', function(req, res){
     });
 });
 
-//Delelte articles
+//mDelete articles
 app.delete('/article/:id', function(req, res){
     let query = {_id:req.params.id}
 
@@ -115,7 +115,7 @@ app.delete('/article/:id', function(req, res){
         if(err){
             console.log(err);
         }
-        res.send('success')
+        res.send('success');
     });
 });
 
