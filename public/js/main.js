@@ -3,7 +3,7 @@ $(document).ready(function(){
         $target = $(e.target);
         const id = $target.attr('data-id');
         $.ajax({
-            type = 'Delete',
+            type = 'DELETE',
             url: '/article/'+id,
             success: function(response){
                 alert('Delelting Article');
@@ -12,7 +12,6 @@ $(document).ready(function(){
             error: function(err){
                 console.log(err);
             }
-
         });
     });
 });
